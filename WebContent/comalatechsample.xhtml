@@ -1,0 +1,76 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">Comalatech Bank Sample</ui:define>
+    
+    <ui:define name="viewname">Comalatech Bank Sample</ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .ui-button {
+                margin-right: 8px;
+            }
+            
+            .form-grid td {
+                padding: 16px 2px;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="f1">
+            <div class="ui-g">
+                <div class="ui-g-12">
+                	
+                	<!-- <p:messages showDetail="true" autoUpdate="true" closable="true" /> -->
+                	
+                	<div class="card card-w-title">
+                         <h1>INCOME LIST</h1>
+                         
+                         <p:dataTable var="income" value="#{incomeController.listIncome}" reflow="true" selectionMode="single" selection="#{incomeController.selectedIncome}" rowKey="#{income.id}">
+                             
+                             
+                             <p:ajax event="rowSelect" listener="#{incomeController.onSelectedRowTableAmount}" update=":f1"></p:ajax>
+                             <f:facet name="header">
+                                 Income
+                             </f:facet>
+                             <p:column headerText="Transaction" sortBy="#{income.id}">
+                                 <h:outputText value="#{income.id}" />
+                             </p:column>
+                             
+                             <p:column headerText="Date" sortBy="#{income.date}">
+                                 <h:outputText value="#{income.date}" />
+                             </p:column>
+
+                             <p:column headerText="Amount" sortBy="#{income.amount}">
+                                 <h:outputText value="#{income.amount}" />
+                             </p:column>
+
+                             <p:column headerText="Balance" sortBy="#{income.balance}">
+                                 <h:outputText value="#{income.balance}" />
+                             </p:column>
+                             
+                         </p:dataTable>
+                         
+                         
+                         <p:panelGrid id="grid_form" columns="6" columnClasses="ui-grid-col-2,ui-grid-col-2,ui-grid-col-2,ui-grid-col-2,ui-grid-col-2,ui-grid-col-2" layout="grid" styleClass="ui-panelgrid-blank form-group" style="border:0px none; background-color:transparent;">
+                            <p:outputLabel for="income" value="Income" />
+                            <p:inputNumber  id="income" 	value="#{incomeController.amount}"  required="true" />
+                            <p:commandButton 				value="Add amount" 		actionListener="#{incomeController.onClicBtnAddAmount}" 	update=":f1" />
+                            <p:commandButton id="btnRemove" value="Remove amount" 	actionListener="#{incomeController.onClicBtnRemoveAmount}" 	update=":f1" 	disabled="#{incomeController.btnRemoveAmount}"/>
+                            <p:commandButton id="btnCancel" value="Cancel" 			actionListener="#{incomeController.onClicBtnCancel}" 		update=":f1" 	disabled="#{incomeController.btnRemoveAmount}"/>
+                            <p:commandButton id="btnReset" 	value="Reset" 			actionListener="#{incomeController.onClicBtnReset}" 		update=":f1"/>
+                        </p:panelGrid>
+                         
+                     </div>
+
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
