@@ -26,7 +26,7 @@ public class IncomeController {
 	
 	private Income selectedIncome = new Income();
 	
-	private Integer amount = new Integer(0);
+	private Double amount = new Double(0);
 
 	private IncomeData incomeData;
 	
@@ -44,7 +44,7 @@ public class IncomeController {
 	
 	 public void onClicBtnAddAmount(ActionEvent event) {
 	    	
-		 	incomeData.addIncome( new Income(new Date(), amount, 0) );
+		 	incomeData.addIncome( new Income(new Date(), amount, Double.valueOf(0)) );
 		 	this.listIncome = incomeData.getIncomes();
 		 	showMessage("Income was added");
 		 	
@@ -104,13 +104,13 @@ public class IncomeController {
 
 
 
-	public Integer getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
 
 
-	public void setAmount(Integer amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 

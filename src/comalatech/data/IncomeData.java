@@ -28,7 +28,7 @@ public class IncomeData {
 		if (listIncome.isEmpty()) {
 			lastIncome = new Income();
 			lastIncome.setId(0);
-			lastIncome.setBalance(0);
+			lastIncome.setBalance(Double.valueOf(0));
 		} else {
 			lastIncome = listIncome.get( listIncome.size() - 1 );
 		}
@@ -54,7 +54,7 @@ public class IncomeData {
 	private void recalculateBalance() {
 		
 		boolean first = true;
-		int balance = 0;
+		double balance = 0;
 		for (Income in : listIncome ) {
 			if (first) {
 				balance = in.getAmount();

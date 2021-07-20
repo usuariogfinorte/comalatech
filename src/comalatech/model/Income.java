@@ -10,7 +10,7 @@ public class Income {
 		super();
 	}
 	
-	public Income(Date _date, Integer _amount, Integer _balance ) {
+	public Income(Date _date, Double _amount, Double _balance ) {
 		this.date = _date;
 		this.amount = _amount;
 		this.balance = _balance;
@@ -20,9 +20,9 @@ public class Income {
 	
 	private Date date;
 	
-	private Integer amount;
+	private Double amount;
 	
-	private Integer balance;
+	private Double balance;
 
 	
 	
@@ -42,19 +42,19 @@ public class Income {
 		this.date = date;
 	}
 
-	public Integer getAmount() {
+	public Double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Integer amount) {
+	public void setAmount(Double amount) {
 		this.amount = amount;
 	}
 
-	public Integer getBalance() {
+	public Double getBalance() {
 		return balance;
 	}
 
-	public void setBalance(Integer balance) {
+	public void setBalance(Double balance) {
 		this.balance = balance;
 	}
 

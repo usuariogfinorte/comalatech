@@ -29,10 +29,9 @@
                 	<!-- <p:messages showDetail="true" autoUpdate="true" closable="true" /> -->
                 	
                 	<div class="card card-w-title">
-                         <h1>INCOME LIST</h1>
+                         <h1>INCOMING LIST</h1>
                          
                          <p:dataTable var="income" value="#{incomeController.listIncome}" reflow="true" selectionMode="single" selection="#{incomeController.selectedIncome}" rowKey="#{income.id}">
-                             
                              
                              <p:ajax event="rowSelect" listener="#{incomeController.onSelectedRowTableAmount}" update=":f1"></p:ajax>
                              <f:facet name="header">
